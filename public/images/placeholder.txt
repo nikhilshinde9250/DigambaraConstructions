@@ -1,0 +1,6 @@
+Place your construction images here:
+- logo.png (company logo)
+- hero-bg.jpg (home page hero background)
+- project1.jpg, project2.jpg, etc. (project images)
+- about-bg.jpg (about us background)
+- team1.jpg, team2.jpg (team member photos)
