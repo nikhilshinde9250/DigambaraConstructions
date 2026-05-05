@@ -673,6 +673,8 @@ a {
   overflow: hidden;
   box-shadow: 0 30px 80px var(--color-shadow);
   transition: transform 0.5s ease;
+  display: block;
+  cursor: pointer;
 }
 
 .youtube-banner-wrapper:hover {

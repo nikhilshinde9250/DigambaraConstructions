@@ -4,7 +4,6 @@ export default function AboutUs() {
   const founder = {
     name: "Baliram Shinde",
     position: "Founder & CEO",
-    experience: "25+ years",
     description: "Visionary leader and founder of Digambara Construction, Mr. Baliram Shinde has been instrumental in shaping the construction landscape with his commitment to quality, innovation, and customer satisfaction. Since establishing the company in March 2025, he has led the team with a focus on modern construction practices and sustainable building solutions."
   };
 
@@ -61,7 +60,6 @@ export default function AboutUs() {
             <div className="founder-info">
               <h3 className="founder-name">{founder.name}</h3>
               <p className="founder-position">{founder.position}</p>
-              <p className="founder-experience">Experience: {founder.experience}</p>
               <p className="founder-description">{founder.description}</p>
               <div className="founder-contact">
                 <p><strong>Contact:</strong> +91 9561231865</p>

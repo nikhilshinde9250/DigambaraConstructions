@@ -67,12 +67,17 @@ export default function Home() {
       <section className="youtube-section">
         <div className="container">
           <div className="youtube-content">
-            <div className="youtube-banner-wrapper fade-in-up">
+            <a 
+              href="https://youtube.com/@digambaraconstruction?si=v4dix0hDgAU8DbzZ" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="youtube-banner-wrapper fade-in-up"
+            >
               <img src="/images/youtube_banner.png" alt="Digambara Construction YouTube Channel" className="youtube-banner-image" />
               <div className="youtube-overlay">
                 <Youtube size={80} className="youtube-icon" />
               </div>
-            </div>
+            </a>
             <div className="youtube-text fade-in-up delay-1">
               <h2 className="section-title">Follow Our Journey on YouTube</h2>
               <p className="section-text">
@@ -80,7 +85,7 @@ export default function Home() {
                 behind-the-scenes content, construction tips, and insights into our building process.
               </p>
               <a 
-                href="https://www.youtube.com/@digambaraconstruction" 
+                href="https://youtube.com/@digambaraconstruction?si=v4dix0hDgAU8DbzZ" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn btn-primary youtube-btn"

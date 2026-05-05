@@ -1,6 +1,7 @@
 import { Outlet, Link, NavLink } from "react-router";
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, Sun, Moon } from "lucide-react";
+import StructuredData from "./StructuredData";
 
 export default function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,6 +23,7 @@ export default function Layout() {
 
   return (
     <div className="site-wrapper">
+      <StructuredData />
       {/* Header */}
       <header className={`header ${scrolled ? "scrolled" : ""}`}>
         <div className="container">
@@ -161,10 +163,10 @@ export default function Layout() {
             <div className="footer-col">
               <h4>Follow Us</h4>
               <div className="social-links">
+                <a href="https://youtube.com/@digambaraconstruction?si=v4dix0hDgAU8DbzZ" target="_blank" rel="noopener noreferrer" aria-label="YouTube">YouTube</a>
                 <a href="#" aria-label="Facebook">Facebook</a>
                 <a href="#" aria-label="Instagram">Instagram</a>
                 <a href="#" aria-label="LinkedIn">LinkedIn</a>
-                <a href="#" aria-label="Twitter">Twitter</a>
               </div>
             </div>
           </div>
