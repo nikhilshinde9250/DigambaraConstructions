@@ -28,7 +28,7 @@ export default function Layout() {
           <div className="header-content">
             {/* Logo */}
             <Link to="/" className="logo">
-              <span className="logo-icon">🏗️</span>
+              <img src="/images/Logo.png" alt="Digambara Constructions" className="logo-image" />
               <span className="logo-text">
                 <span className="logo-name">Digambara</span>
                 <span className="logo-tagline">Constructions</span>
@@ -151,9 +151,9 @@ export default function Layout() {
             <div className="footer-col">
               <h4>Contact Info</h4>
               <ul>
-                <li>📍 123 Construction Ave, City</li>
-                <li>📞 +91 12345 67890</li>
-                <li>✉️ info@digambaraconstructions.com</li>
+                <li>📍 Beed, Navgan Rajuri, Maharashtra 431122</li>
+                <li>📞 +91 9561231865</li>
+                <li>✉️ info@digambaraconstruction.com</li>
                 <li>🕒 Mon - Sat: 9:00 AM - 6:00 PM</li>
               </ul>
             </div>

@@ -61,7 +61,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4>Visit Us</h4>
-                    <p>123 Construction Avenue<br />Business District, City - 400001</p>
+                    <p>Beed, Navgan Rajuri<br />Maharashtra 431122</p>
                   </div>
                 </div>
 
@@ -71,7 +71,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4>Call Us</h4>
-                    <p>+91 12345 67890<br />+91 98765 43210</p>
+                    <p>+91 9561231865</p>
                   </div>
                 </div>
 
@@ -81,7 +81,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4>Email Us</h4>
-                    <p>info@digambaraconstructions.com<br />support@digambaraconstructions.com</p>
+                    <p>info@digambaraconstruction.com</p>
                   </div>
                 </div>
 

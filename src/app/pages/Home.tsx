@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
-import { ArrowRight, CheckCircle, Award, Users, Building2 } from "lucide-react";
+import { ArrowRight, Building2, Youtube, TrendingUp, Calendar } from "lucide-react";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -8,68 +8,6 @@ export default function Home() {
   useEffect(() => {
     setIsVisible(true);
   }, []);
-
-  const stats = [
-    { number: "500+", label: "Projects Completed", icon: <Building2 size={40} /> },
-    { number: "50+", label: "Ongoing Projects", icon: <CheckCircle size={40} /> },
-    { number: "1000+", label: "Happy Clients", icon: <Users size={40} /> },
-    { number: "25+", label: "Years Experience", icon: <Award size={40} /> },
-  ];
-
-  const ongoingProjects = [
-    {
-      id: 1,
-      name: "Luxury Residential Complex",
-      location: "Downtown Area",
-      progress: 75,
-      image: "/images/project1.jpg"
-    },
-    {
-      id: 2,
-      name: "Commercial Tower",
-      location: "Business District",
-      progress: 60,
-      image: "/images/project2.jpg"
-    },
-    {
-      id: 3,
-      name: "Shopping Mall",
-      location: "Suburban Area",
-      progress: 45,
-      image: "/images/project3.jpg"
-    },
-  ];
-
-  const completedProjects = [
-    {
-      id: 1,
-      name: "Green Valley Apartments",
-      location: "East Side",
-      year: "2025",
-      image: "/images/completed1.jpg"
-    },
-    {
-      id: 2,
-      name: "Tech Park Campus",
-      location: "IT Corridor",
-      year: "2024",
-      image: "/images/completed2.jpg"
-    },
-    {
-      id: 3,
-      name: "Riverside Villas",
-      location: "Waterfront",
-      year: "2024",
-      image: "/images/completed3.jpg"
-    },
-    {
-      id: 4,
-      name: "City Center Plaza",
-      location: "Central District",
-      year: "2023",
-      image: "/images/completed4.jpg"
-    },
-  ];
 
   return (
     <div className="home-page">
@@ -85,117 +23,72 @@ export default function Home() {
               We Believe in Consistency With Quality
             </p>
             <div className="hero-buttons fade-in-up delay-2">
-              <Link to="/contact" className="btn btn-primary">
-                Get Started <ArrowRight size={20} />
-              </Link>
-              <Link to="/projects/ongoing" className="btn btn-secondary">
-                View Projects
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="stats-section">
-        <div className="container">
-          <div className="stats-grid">
-            {stats.map((stat, index) => (
-              <div key={index} className="stat-card fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="stat-icon">{stat.icon}</div>
-                <div className="stat-number">{stat.number}</div>
-                <div className="stat-label">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* About Preview Section */}
-      <section className="about-preview-section">
-        <div className="container">
-          <div className="about-preview-grid">
-            <div className="about-preview-image">
-              <div className="image-placeholder">
-                <Building2 size={100} />
-              </div>
-            </div>
-            <div className="about-preview-content">
-              <h2 className="section-title">About Digambara Constructions</h2>
-              <p className="section-text">
-                With over 25 years of excellence in the construction industry, Digambara Constructions
-                has established itself as a leading name in residential, commercial, and industrial projects.
-              </p>
-              <ul className="feature-list">
-                <li><CheckCircle size={20} /> Quality craftsmanship</li>
-                <li><CheckCircle size={20} /> Timely project delivery</li>
-                <li><CheckCircle size={20} /> Experienced team</li>
-                <li><CheckCircle size={20} /> Customer satisfaction</li>
-              </ul>
               <Link to="/about" className="btn btn-primary">
                 Learn More <ArrowRight size={20} />
               </Link>
+              <Link to="/contact" className="btn btn-secondary">
+                Contact Us
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Ongoing Projects Section */}
-      <section className="projects-section ongoing">
+      {/* Startup Info Section */}
+      <section className="startup-info-section">
         <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">Ongoing Projects</h2>
-            <Link to="/projects/ongoing" className="view-all-link">
-              View All <ArrowRight size={18} />
-            </Link>
-          </div>
-          <div className="projects-grid">
-            {ongoingProjects.map((project) => (
-              <div key={project.id} className="project-card">
-                <div className="project-image">
-                  <div className="image-placeholder">
-                    <Building2 size={60} />
-                  </div>
-                  <div className="project-badge ongoing-badge">In Progress</div>
-                </div>
-                <div className="project-info">
-                  <h3>{project.name}</h3>
-                  <p className="project-location">📍 {project.location}</p>
-                  <div className="progress-bar">
-                    <div className="progress-fill" style={{ width: `${project.progress}%` }}></div>
-                  </div>
-                  <p className="progress-text">{project.progress}% Complete</p>
-                </div>
+          <div className="startup-cards">
+            <div className="startup-card fade-in-up">
+              <div className="startup-icon">
+                <TrendingUp size={50} />
               </div>
-            ))}
+              <h3>Growing Fast</h3>
+              <p>A dynamic startup revolutionizing the construction industry with innovative solutions and quality craftsmanship</p>
+            </div>
+            <div className="startup-card fade-in-up delay-1">
+              <div className="startup-icon">
+                <Calendar size={50} />
+              </div>
+              <h3>Established March 2025</h3>
+              <p>Fresh perspective with experienced leadership, bringing modern construction practices to Maharashtra</p>
+            </div>
+            <div className="startup-card fade-in-up delay-2">
+              <div className="startup-icon">
+                <Building2 size={50} />
+              </div>
+              <h3>Quality First</h3>
+              <p>Committed to delivering excellence in every project, building trust one structure at a time</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Completed Projects Section */}
-      <section className="projects-section completed">
+      {/* YouTube Channel Section */}
+      <section className="youtube-section">
         <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">Completed Projects</h2>
-            <Link to="/projects/completed" className="view-all-link">
-              View All <ArrowRight size={18} />
-            </Link>
-          </div>
-          <div className="projects-grid">
-            {completedProjects.map((project) => (
-              <div key={project.id} className="project-card">
-                <div className="project-image">
-                  <div className="image-placeholder">
-                    <Building2 size={60} />
-                  </div>
-                  <div className="project-badge completed-badge">Completed {project.year}</div>
-                </div>
-                <div className="project-info">
-                  <h3>{project.name}</h3>
-                  <p className="project-location">📍 {project.location}</p>
-                </div>
+          <div className="youtube-content">
+            <div className="youtube-banner-wrapper fade-in-up">
+              <img src="/images/youtube_banner.png" alt="Digambara Construction YouTube Channel" className="youtube-banner-image" />
+              <div className="youtube-overlay">
+                <Youtube size={80} className="youtube-icon" />
               </div>
-            ))}
+            </div>
+            <div className="youtube-text fade-in-up delay-1">
+              <h2 className="section-title">Follow Our Journey on YouTube</h2>
+              <p className="section-text">
+                Watch our construction projects come to life! Subscribe to our YouTube channel for project updates, 
+                behind-the-scenes content, construction tips, and insights into our building process.
+              </p>
+              <a 
+                href="https://www.youtube.com/@digambaraconstruction" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn btn-primary youtube-btn"
+              >
+                <Youtube size={24} />
+                Visit Our YouTube Channel
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -203,11 +96,11 @@ export default function Home() {
       {/* CTA Section */}
       <section className="cta-section">
         <div className="container">
-          <div className="cta-content">
+          <div className="cta-content fade-in-up">
             <h2>Ready to Start Your Project?</h2>
             <p>Let's build something amazing together</p>
-            <Link to="/contact" className="btn btn-primary">
-              Contact Us Today <ArrowRight size={20} />
+            <Link to="/about" className="btn btn-primary">
+              Discover Our Story <ArrowRight size={20} />
             </Link>
           </div>
         </div>

@@ -1,55 +1,12 @@
-import { Award, Target, Eye, Heart, Users, Briefcase, CheckCircle } from "lucide-react";
+import { Award, CheckCircle, Heart, Users, Briefcase } from "lucide-react";
 
 export default function AboutUs() {
-  const values = [
-    {
-      icon: <Award size={40} />,
-      title: "Quality Excellence",
-      description: "We maintain the highest standards in every project we undertake."
-    },
-    {
-      icon: <Heart size={40} />,
-      title: "Customer Satisfaction",
-      description: "Your satisfaction is our top priority and measure of success."
-    },
-    {
-      icon: <CheckCircle size={40} />,
-      title: "Integrity",
-      description: "We conduct business with honesty, transparency, and ethics."
-    },
-    {
-      icon: <Users size={40} />,
-      title: "Teamwork",
-      description: "Collaboration and mutual respect drive our success."
-    },
-  ];
-
-  const team = [
-    {
-      name: "Rajesh Kumar",
-      position: "Founder & CEO",
-      experience: "30 years",
-      description: "Visionary leader with extensive experience in construction industry."
-    },
-    {
-      name: "Priya Sharma",
-      position: "Chief Architect",
-      experience: "20 years",
-      description: "Award-winning architect specializing in sustainable design."
-    },
-    {
-      name: "Amit Patel",
-      position: "Project Director",
-      experience: "25 years",
-      description: "Expert in project management and timely delivery."
-    },
-    {
-      name: "Neha Singh",
-      position: "Operations Head",
-      experience: "18 years",
-      description: "Ensures smooth operations and quality control."
-    },
-  ];
+  const founder = {
+    name: "Baliram Shinde",
+    position: "Founder & CEO",
+    experience: "25+ years",
+    description: "Visionary leader and founder of Digambara Construction, Mr. Baliram Shinde has been instrumental in shaping the construction landscape with his commitment to quality, innovation, and customer satisfaction. Since establishing the company in March 2025, he has led the team with a focus on modern construction practices and sustainable building solutions."
+  };
 
   return (
     <div className="about-page">
@@ -67,19 +24,19 @@ export default function AboutUs() {
             <div className="about-text">
               <h2 className="section-title">Our Story</h2>
               <p>
-                Founded in 2001, Digambara Constructions has grown from a small construction firm
-                to one of the most trusted names in the industry. With over 25 years of experience,
-                we have successfully delivered more than 500 projects across residential, commercial,
-                and industrial sectors.
+                Founded in March 2025, Digambara Construction is a dynamic startup bringing fresh innovation 
+                to the construction industry. We combine modern building techniques with traditional values 
+                of quality and reliability.
               </p>
               <p>
-                Our journey has been marked by unwavering commitment to quality, innovation, and
-                customer satisfaction. We believe in building not just structures, but lasting
-                relationships with our clients, partners, and communities.
+                As a growing company, we are committed to establishing ourselves as a trusted name in 
+                residential, commercial, and industrial construction. Our journey is marked by dedication 
+                to excellence, customer satisfaction, and sustainable building practices.
               </p>
               <p>
-                Today, Digambara Constructions stands as a symbol of reliability and excellence,
-                continuing to shape skylines and create spaces that enhance lives.
+                Based in Beed, Maharashtra, we serve clients across the region with personalized service 
+                and attention to detail. Every project we undertake is a step toward building our reputation 
+                as a reliable construction partner.
               </p>
             </div>
             <div className="about-image">
@@ -91,111 +48,25 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* Vision & Mission */}
-      <section className="vision-mission-section">
+      {/* Founder Section */}
+      <section className="founder-section">
         <div className="container">
-          <div className="vm-grid">
-            <div className="vm-card">
-              <div className="vm-icon">
-                <Eye size={50} />
+          <h2 className="section-title text-center">Meet Our Founder</h2>
+          <div className="founder-card">
+            <div className="founder-image">
+              <div className="image-placeholder">
+                <Users size={120} />
               </div>
-              <h3>Our Vision</h3>
-              <p>
-                To be the most trusted and innovative construction company, setting new benchmarks
-                in quality, sustainability, and customer satisfaction across India.
-              </p>
             </div>
-
-            <div className="vm-card">
-              <div className="vm-icon">
-                <Target size={50} />
+            <div className="founder-info">
+              <h3 className="founder-name">{founder.name}</h3>
+              <p className="founder-position">{founder.position}</p>
+              <p className="founder-experience">Experience: {founder.experience}</p>
+              <p className="founder-description">{founder.description}</p>
+              <div className="founder-contact">
+                <p><strong>Contact:</strong> +91 9561231865</p>
+                <p><strong>Email:</strong> info@digambaraconstruction.com</p>
               </div>
-              <h3>Our Mission</h3>
-              <p>
-                To deliver exceptional construction solutions through cutting-edge technology,
-                skilled professionals, and sustainable practices while exceeding client expectations.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Core Values */}
-      <section className="values-section">
-        <div className="container">
-          <h2 className="section-title text-center">Our Core Values</h2>
-          <div className="values-grid">
-            {values.map((value, index) => (
-              <div key={index} className="value-card">
-                <div className="value-icon">{value.icon}</div>
-                <h3>{value.title}</h3>
-                <p>{value.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team */}
-      <section className="team-section">
-        <div className="container">
-          <h2 className="section-title text-center">Our Leadership Team</h2>
-          <div className="team-grid">
-            {team.map((member, index) => (
-              <div key={index} className="team-card">
-                <div className="team-image">
-                  <div className="image-placeholder">
-                    <Users size={60} />
-                  </div>
-                </div>
-                <div className="team-info">
-                  <h3>{member.name}</h3>
-                  <p className="team-position">{member.position}</p>
-                  <p className="team-experience">Experience: {member.experience}</p>
-                  <p className="team-description">{member.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="why-choose-section">
-        <div className="container">
-          <h2 className="section-title text-center">Why Choose Digambara Constructions?</h2>
-          <div className="why-choose-grid">
-            <div className="why-item">
-              <CheckCircle size={24} />
-              <span>25+ years of industry experience</span>
-            </div>
-            <div className="why-item">
-              <CheckCircle size={24} />
-              <span>500+ successfully completed projects</span>
-            </div>
-            <div className="why-item">
-              <CheckCircle size={24} />
-              <span>ISO certified quality standards</span>
-            </div>
-            <div className="why-item">
-              <CheckCircle size={24} />
-              <span>Timely project delivery</span>
-            </div>
-            <div className="why-item">
-              <CheckCircle size={24} />
-              <span>Experienced and skilled team</span>
-            </div>
-            <div className="why-item">
-              <CheckCircle size={24} />
-              <span>Sustainable construction practices</span>
-            </div>
-            <div className="why-item">
-              <CheckCircle size={24} />
-              <span>Competitive pricing</span>
-            </div>
-            <div className="why-item">
-              <CheckCircle size={24} />
-              <span>24/7 customer support</span>
             </div>
           </div>
         </div>

@@ -4,63 +4,36 @@ export default function CompletedProjects() {
   const projects = [
     {
       id: 1,
-      name: "Green Valley Apartments",
-      location: "East Side, Residential Zone",
-      completionDate: "Dec 2025",
-      area: "45,000 sq ft",
-      units: "120 Apartments",
-      description: "Eco-friendly residential complex with modern amenities and green spaces.",
-      features: ["Solar Power", "Rainwater Harvesting", "Smart Home Systems", "Clubhouse"]
+      name: "Completed Project 1", // UPDATE: Add actual project name
+      location: "Beed, Maharashtra", // UPDATE: Add actual location
+      completionDate: "March 2025", // UPDATE: Add completion date
+      area: "Area sq ft", // UPDATE: Add area
+      units: "Residential/Commercial", // UPDATE: Add units
+      description: "Successfully completed construction project delivered with quality and on time.", // UPDATE: Add description
+      features: ["Quality Construction", "Timely Delivery", "Customer Satisfaction", "Modern Design"], // UPDATE: Add features
+      image: "/images/4.jpg" // Image 4 - Add your image as 4.jpg in public/images/
     },
     {
       id: 2,
-      name: "Tech Park Campus",
-      location: "IT Corridor, Sector 8",
-      completionDate: "Oct 2024",
-      area: "150,000 sq ft",
-      units: "5 Buildings",
-      description: "State-of-the-art IT park with world-class infrastructure for tech companies.",
-      features: ["High-Speed Internet", "Cafeteria", "Gym", "Conference Halls"]
+      name: "Completed Project 2", // UPDATE: Add actual project name
+      location: "Beed, Maharashtra", // UPDATE: Add actual location
+      completionDate: "April 2025", // UPDATE: Add completion date
+      area: "Area sq ft", // UPDATE: Add area
+      units: "Residential/Commercial", // UPDATE: Add units
+      description: "High-quality construction project completed to client specifications.", // UPDATE: Add description
+      features: ["Premium Materials", "Expert Craftsmanship", "Modern Amenities", "Durable Build"], // UPDATE: Add features
+      image: "/images/5.jpg" // Image 5 - Add your image as 5.jpg in public/images/
     },
     {
       id: 3,
-      name: "Riverside Villas",
-      location: "Waterfront District",
-      completionDate: "Aug 2024",
-      area: "35,000 sq ft",
-      units: "25 Villas",
-      description: "Luxury villas with scenic river views and premium amenities.",
-      features: ["Private Gardens", "Swimming Pool", "Security", "Parking"]
-    },
-    {
-      id: 4,
-      name: "City Center Plaza",
-      location: "Central Business District",
-      completionDate: "Jun 2023",
-      area: "90,000 sq ft",
-      units: "Mixed Use",
-      description: "Commercial and retail space in the heart of the city.",
-      features: ["Retail Shops", "Offices", "Food Court", "Parking Tower"]
-    },
-    {
-      id: 5,
-      name: "Healthcare Medical Center",
-      location: "Medical District",
-      completionDate: "Mar 2023",
-      area: "65,000 sq ft",
-      units: "Multi-specialty Hospital",
-      description: "Modern medical facility with advanced healthcare infrastructure.",
-      features: ["ICU", "Operation Theaters", "Diagnostic Center", "Emergency Services"]
-    },
-    {
-      id: 6,
-      name: "Sunset Heights Towers",
-      location: "North Side Residential",
-      completionDate: "Jan 2023",
-      area: "80,000 sq ft",
-      units: "200 Apartments",
-      description: "High-rise residential towers with panoramic city views.",
-      features: ["Sky Lounge", "Gym", "Play Area", "24/7 Security"]
+      name: "Completed Project 3", // UPDATE: Add actual project name
+      location: "Beed, Maharashtra", // UPDATE: Add actual location
+      completionDate: "May 2025", // UPDATE: Add completion date
+      area: "Area sq ft", // UPDATE: Add area
+      units: "Residential/Commercial", // UPDATE: Add units
+      description: "Excellent construction project showcasing our commitment to quality.", // UPDATE: Add description
+      features: ["Quality Assurance", "Professional Team", "Client Focused", "Attention to Detail"], // UPDATE: Add features
+      image: "/images/6.jpg" // Image 6 - Add your image as 6.jpg in public/images/
     },
   ];
 
@@ -103,9 +76,14 @@ export default function CompletedProjects() {
             {projects.map((project) => (
               <div key={project.id} className="project-detail-card completed">
                 <div className="project-detail-image">
-                  <div className="image-placeholder">
-                    <Building2 size={80} />
-                  </div>
+                  <img 
+                    src={project.image} 
+                    alt={project.name} 
+                    className="project-real-image"
+                    onError={(e) => {
+                      e.currentTarget.src = '/images/placeholder.svg';
+                    }}
+                  />
                   <div className="completed-stamp">
                     <CheckCircle size={30} />
                     <span>Completed</span>
