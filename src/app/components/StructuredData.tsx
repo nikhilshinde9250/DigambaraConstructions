@@ -8,11 +8,12 @@ const StructuredData = () => {
     founder: {
       "@type": "Person",
       name: "Baliram Shinde",
-      jobTitle: "Founder & CEO",
+      jobTitle: "Founder & CEO, Civil Engineer",
+      description: "BE Civil Engineering, Full-time Businessman & Part-time YouTuber",
     },
     foundingDate: "2025-03",
     description:
-      "Digambara Construction is a dynamic startup construction company specializing in residential, commercial, and industrial construction projects. Based in Beed, Maharashtra, we are committed to quality craftsmanship, timely delivery, and customer satisfaction. Established in March 2025, we bring fresh innovation to the construction industry.",
+      "Digambara Construction is a dynamic startup construction company led by Civil Engineer Baliram Shinde. We specialize in comprehensive construction services including residential, commercial, and industrial projects, building planning, architectural designing, cost estimating, building permissions, NA layouts, and contract management. Based in Beed, Maharashtra, we are committed to quality craftsmanship, timely delivery, and customer satisfaction.",
     url: "https://digambaraconstruction.com",
     logo: "https://digambaraconstruction.com/images/Logo.png",
     image: "https://digambaraconstruction.com/images/youtube_banner.png",
@@ -46,7 +47,14 @@ const StructuredData = () => {
       "Commercial Construction",
       "Industrial Construction",
       "Building Construction",
+      "Building Planning",
+      "Architectural Designing",
+      "Cost Estimating",
+      "Building Permission Services",
+      "NA Layout Planning",
+      "Construction Contracts",
       "Construction Management",
+      "Project Consultation",
     ],
   };
 
@@ -59,11 +67,11 @@ const StructuredData = () => {
       <title>Digambara Construction - Building Dreams with Excellence | Beed, Maharashtra</title>
       <meta
         name="description"
-        content="Digambara Construction is a growing construction company in Beed, Maharashtra. Founded by Baliram Shinde in March 2025, we specialize in residential, commercial, and industrial construction with quality craftsmanship and timely delivery."
+        content="Digambara Construction - Led by Civil Engineer Baliram Shinde (BE Civil). Comprehensive construction services in Beed, Maharashtra including building planning, designing, estimating, building permissions, NA layouts, and contracts. Established March 2025."
       />
       <meta
         name="keywords"
-        content="Digambara Construction, Baliram Shinde, construction company Beed, construction Maharashtra, residential construction, commercial construction, industrial construction, building contractor Beed, construction services Maharashtra, quality construction, startup construction company, Navgan Rajuri construction, Beed builders, Maharashtra construction company"
+        content="Digambara Construction, Baliram Shinde, Civil Engineer Beed, BE Civil, construction company Beed, building planning, architectural designing, cost estimating, building permission, NA layout, construction contracts, residential construction, commercial construction, industrial construction, building contractor Beed, construction services Maharashtra, Navgan Rajuri construction, Beed builders, Maharashtra construction company, construction management, project consultation, full-time businessman, YouTuber construction"
       />
       <meta name="author" content="Digambara Construction" />
       <meta name="robots" content="index, follow" />
@@ -76,7 +84,7 @@ const StructuredData = () => {
       <meta property="og:title" content="Digambara Construction - Building Dreams with Excellence" />
       <meta
         property="og:description"
-        content="Quality construction services in Beed, Maharashtra. Residential, commercial, and industrial projects. Founded by Baliram Shinde."
+        content="Led by Civil Engineer Baliram Shinde. Comprehensive construction services including building planning, designing, estimating, permissions, NA layouts, and contracts in Beed, Maharashtra."
       />
       <meta property="og:image" content="https://digambaraconstruction.com/images/youtube_banner.png" />
 
@@ -86,7 +94,7 @@ const StructuredData = () => {
       <meta property="twitter:title" content="Digambara Construction - Building Dreams with Excellence" />
       <meta
         property="twitter:description"
-        content="Quality construction services in Beed, Maharashtra. Residential, commercial, and industrial projects."
+        content="Led by Civil Engineer Baliram Shinde. Building planning, designing, estimating, permissions, NA layouts & contracts in Beed, Maharashtra."
       />
       <meta property="twitter:image" content="https://digambaraconstruction.com/images/youtube_banner.png" />
 

@@ -4,7 +4,9 @@ export default function AboutUs() {
   const founder = {
     name: "Baliram Shinde",
     position: "Founder & CEO",
-    description: "Visionary leader and founder of Digambara Construction, Mr. Baliram Shinde has been instrumental in shaping the construction landscape with his commitment to quality, innovation, and customer satisfaction. Since establishing the company in March 2025, he has led the team with a focus on modern construction practices and sustainable building solutions."
+    education: "Bachelor of Engineering (BE) in Civil Engineering",
+    description: "Mr. Baliram Shinde is a qualified Civil Engineer (BE Civil) and the visionary founder of Digambara Construction. As a full-time businessman and part-time YouTuber, he brings technical expertise and modern innovation to the construction industry. Since establishing the company in March 2025, he has been committed to delivering quality construction services with professional excellence. His engineering background combined with entrepreneurial spirit drives the company's mission to provide comprehensive construction solutions including building planning, designing, estimating, building permissions, NA layouts, and contract management.",
+    image: "/images/Baliram.jpg" // Owner photo
   };
 
   return (
@@ -12,7 +14,7 @@ export default function AboutUs() {
       <section className="page-hero">
         <div className="container">
           <h1 className="page-title">About Digambara Constructions</h1>
-          <p className="page-subtitle">Building trust through excellence since 2001</p>
+          <p className="page-subtitle">Building trust through excellence since 2025</p>
         </div>
       </section>
 
@@ -39,9 +41,18 @@ export default function AboutUs() {
               </p>
             </div>
             <div className="about-image">
-              <div className="image-placeholder">
-                <Briefcase size={100} />
-              </div>
+              <img 
+                src="/images/Logo.png" 
+                alt="Digambara Construction Logo" 
+                className="about-logo-image"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  const placeholder = document.createElement('div');
+                  placeholder.className = 'image-placeholder';
+                  placeholder.innerHTML = '<svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 7h-4V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v3H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path></svg>';
+                  e.currentTarget.parentElement!.appendChild(placeholder);
+                }}
+              />
             </div>
           </div>
         </div>
@@ -53,14 +64,27 @@ export default function AboutUs() {
           <h2 className="section-title text-center">Meet Our Founder</h2>
           <div className="founder-card">
             <div className="founder-image">
-              <div className="image-placeholder">
-                <Users size={120} />
-              </div>
+              <img src={founder.image} alt={founder.name} className="founder-photo" onError={(e) => {
+                e.currentTarget.style.display = 'none';
+                e.currentTarget.parentElement!.innerHTML = '<div class="image-placeholder"><svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>';
+              }} />
             </div>
             <div className="founder-info">
               <h3 className="founder-name">{founder.name}</h3>
               <p className="founder-position">{founder.position}</p>
+              <p className="founder-education">{founder.education}</p>
               <p className="founder-description">{founder.description}</p>
+              <div className="founder-highlights">
+                <div className="highlight-item">
+                  <strong>🎓 Qualification:</strong> BE Civil Engineering
+                </div>
+                <div className="highlight-item">
+                  <strong>💼 Role:</strong> Full-time Businessman
+                </div>
+                <div className="highlight-item">
+                  <strong>🎬 Passion:</strong> Part-time YouTuber
+                </div>
+              </div>
               <div className="founder-contact">
                 <p><strong>Contact:</strong> +91 9561231865</p>
                 <p><strong>Email:</strong> info@digambaraconstruction.com</p>

@@ -52,7 +52,7 @@ export default function CompletedProjects() {
             <div className="stat-box">
               <Award size={40} />
               <div>
-                <h3>500+</h3>
+                <h3>50+</h3>
                 <p>Projects Delivered</p>
               </div>
             </div>

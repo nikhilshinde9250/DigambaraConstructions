@@ -2,6 +2,7 @@ import { Outlet, Link, NavLink } from "react-router";
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, Sun, Moon } from "lucide-react";
 import StructuredData from "./StructuredData";
+import ScrollToTop from "./ScrollToTop";
 
 export default function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,9 +22,46 @@ export default function Layout() {
     document.documentElement.classList.toggle("dark-mode", isDarkMode);
   }, [isDarkMode]);
 
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (isMenuOpen && !target.closest('.mobile-nav') && !target.closest('.menu-toggle')) {
+        setIsMenuOpen(false);
+        setIsProjectsOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('click', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isMenuOpen]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
+  const handleMobileNavClick = () => {
+    setIsMenuOpen(false);
+    setIsProjectsOpen(false);
+  };
+
   return (
     <div className="site-wrapper">
       <StructuredData />
+      <ScrollToTop />
       {/* Header */}
       <header className={`header ${scrolled ? "scrolled" : ""}`}>
         <div className="container">
@@ -97,7 +135,7 @@ export default function Layout() {
 
           {/* Mobile Navigation */}
           <nav className={`mobile-nav ${isMenuOpen ? "open" : ""}`}>
-            <NavLink to="/" onClick={() => setIsMenuOpen(false)}>
+            <NavLink to="/" onClick={handleMobileNavClick}>
               Home
             </NavLink>
             <div className="mobile-dropdown">
@@ -108,18 +146,18 @@ export default function Layout() {
                 Projects <ChevronDown size={16} />
               </button>
               <div className={`mobile-dropdown-menu ${isProjectsOpen ? "show" : ""}`}>
-                <NavLink to="/projects/ongoing" onClick={() => setIsMenuOpen(false)}>
+                <NavLink to="/projects/ongoing" onClick={handleMobileNavClick}>
                   Ongoing Projects
                 </NavLink>
-                <NavLink to="/projects/completed" onClick={() => setIsMenuOpen(false)}>
+                <NavLink to="/projects/completed" onClick={handleMobileNavClick}>
                   Completed Projects
                 </NavLink>
               </div>
             </div>
-            <NavLink to="/about" onClick={() => setIsMenuOpen(false)}>
+            <NavLink to="/about" onClick={handleMobileNavClick}>
               About Us
             </NavLink>
-            <NavLink to="/contact" onClick={() => setIsMenuOpen(false)}>
+            <NavLink to="/contact" onClick={handleMobileNavClick}>
               Contact
             </NavLink>
           </nav>
@@ -156,7 +194,7 @@ export default function Layout() {
                 <li>📍 Beed, Navgan Rajuri, Maharashtra 431122</li>
                 <li>📞 +91 9561231865</li>
                 <li>✉️ info@digambaraconstruction.com</li>
-                <li>🕒 Mon - Sat: 9:00 AM - 6:00 PM</li>
+                <li>🕒 Open 24 Hours - 7 Days a Week</li>
               </ul>
             </div>
 

@@ -1,16 +1,20 @@
-import { useState } from "react";
-import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { useState, useRef } from "react";
+import emailjs from '@emailjs/browser';
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle, AlertCircle } from "lucide-react";
 
 export default function Contact() {
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
+    from_name: "",
+    from_email: "",
     phone: "",
     subject: "",
     message: ""
   });
 
-  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -19,19 +23,47 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: ""
-      });
-    }, 3000);
+    setIsLoading(true);
+    setIsError(false);
+    setIsSubmitted(false);
+
+    if (!formRef.current) {
+      setIsError(true);
+      setIsLoading(false);
+      return;
+    }
+
+    emailjs.sendForm(
+      'service_8py5gi7',
+      'template_g4wdnor',
+      formRef.current,
+      'USCTNcslrY53r_hG4'
+    ).then(
+      () => {
+        setIsSubmitted(true);
+        setIsLoading(false);
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({
+            from_name: "",
+            from_email: "",
+            phone: "",
+            subject: "",
+            message: ""
+          });
+        }, 5000);
+      },
+      (error) => {
+        console.error('EmailJS Error:', error);
+        setIsError(true);
+        setIsLoading(false);
+        setTimeout(() => {
+          setIsError(false);
+        }, 5000);
+      }
+    );
   };
 
   return (
@@ -91,7 +123,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4>Working Hours</h4>
-                    <p>Monday - Saturday: 9:00 AM - 6:00 PM<br />Sunday: Closed</p>
+                    <p>Open 24 Hours<br />7 Days a Week</p>
                   </div>
                 </div>
               </div>
@@ -107,20 +139,28 @@ export default function Contact() {
             <div className="contact-form-section">
               <h2>Send Us a Message</h2>
 
-              {submitted && (
+              {isSubmitted && (
                 <div className="success-message">
-                  ✓ Thank you! Your message has been sent successfully. We'll get back to you soon.
+                  <CheckCircle size={24} />
+                  <span>✓ Thank you! Your message has been sent successfully. We'll get back to you soon.</span>
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="contact-form">
+              {isError && (
+                <div className="error-message">
+                  <AlertCircle size={24} />
+                  <span>✗ Failed to send message. Please try again or contact us directly.</span>
+                </div>
+              )}
+
+              <form ref={formRef} onSubmit={handleSubmit} className="contact-form">
                 <div className="form-group">
-                  <label htmlFor="name">Full Name *</label>
+                  <label htmlFor="from_name">Full Name *</label>
                   <input
                     type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
+                    id="from_name"
+                    name="from_name"
+                    value={formData.from_name}
                     onChange={handleChange}
                     required
                     placeholder="Enter your full name"
@@ -129,12 +169,12 @@ export default function Contact() {
 
                 <div className="form-row">
                   <div className="form-group">
-                    <label htmlFor="email">Email Address *</label>
+                    <label htmlFor="from_email">Email Address *</label>
                     <input
                       type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
+                      id="from_email"
+                      name="from_email"
+                      value={formData.from_email}
                       onChange={handleChange}
                       required
                       placeholder="your@email.com"
@@ -166,9 +206,11 @@ export default function Contact() {
                   >
                     <option value="">Select a subject</option>
                     <option value="new-project">New Project Inquiry</option>
-                    <option value="ongoing-project">Ongoing Project Query</option>
+                    <option value="building-planning">Building Planning</option>
+                    <option value="cost-estimation">Cost Estimation</option>
+                    <option value="building-permission">Building Permission</option>
+                    <option value="na-layout">NA Layout</option>
                     <option value="quotation">Request Quotation</option>
-                    <option value="partnership">Partnership Opportunity</option>
                     <option value="other">Other</option>
                   </select>
                 </div>
@@ -186,9 +228,18 @@ export default function Contact() {
                   ></textarea>
                 </div>
 
-                <button type="submit" className="btn btn-primary submit-btn">
-                  <Send size={20} />
-                  Send Message
+                <button type="submit" className="btn btn-primary submit-btn" disabled={isLoading}>
+                  {isLoading ? (
+                    <>
+                      <span className="loading-spinner"></span>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send size={20} />
+                      Send Message
+                    </>
+                  )}
                 </button>
               </form>
             </div>

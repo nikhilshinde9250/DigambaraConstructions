@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
-import { ArrowRight, Building2, Youtube, TrendingUp, Calendar } from "lucide-react";
+import { ArrowRight, Youtube, TrendingUp, Calendar, Building2 } from "lucide-react";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,18 +11,22 @@ export default function Home() {
 
   return (
     <div className="home-page">
-      {/* Hero Section */}
-      <section className={`hero-section ${isVisible ? "visible" : ""}`}>
-        <div className="hero-overlay"></div>
+      {/* Hero Section with Background */}
+      <section className={`hero-section-new ${isVisible ? "visible" : ""}`}>
+        <div className="hero-background-image"></div>
+        <div className="hero-overlay-dark"></div>
         <div className="container">
-          <div className="hero-content">
-            <h1 className="hero-title fade-in-up">
-              Building Dreams with <span className="golden-text">Excellence</span>
+          <div className="hero-content-new">
+            <h1 className="company-name slide-in-left">
+              Digambara Construction
             </h1>
-            <p className="hero-subtitle fade-in-up delay-1">
-              We Believe in Consistency With Quality
+            <p className="trademark-tagline slide-in-right delay-1">
+              "We Believe in Consistency With Quality"
             </p>
-            <div className="hero-buttons fade-in-up delay-2">
+            <p className="hero-description fade-in-up delay-2">
+              Leading construction company in Beed, Maharashtra
+            </p>
+            <div className="hero-buttons fade-in-up delay-3">
               <Link to="/about" className="btn btn-primary">
                 Learn More <ArrowRight size={20} />
               </Link>
@@ -37,6 +41,7 @@ export default function Home() {
       {/* Startup Info Section */}
       <section className="startup-info-section">
         <div className="container">
+          <h2 className="section-title text-center">Why Choose Digambara Construction?</h2>
           <div className="startup-cards">
             <div className="startup-card fade-in-up">
               <div className="startup-icon">
@@ -58,6 +63,50 @@ export default function Home() {
               </div>
               <h3>Quality First</h3>
               <p>Committed to delivering excellence in every project, building trust one structure at a time</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="services-section">
+        <div className="container">
+          <h2 className="section-title text-center">Our Comprehensive Services</h2>
+          <p className="section-subtitle text-center">
+            Led by Civil Engineer Baliram Shinde (BE Civil), we offer complete construction solutions
+          </p>
+          <div className="services-grid">
+            <div className="service-card fade-in-up">
+              <h3>🏗️ Building Construction</h3>
+              <p>Residential, Commercial & Industrial construction projects</p>
+            </div>
+            <div className="service-card fade-in-up delay-1">
+              <h3>📐 Building Planning</h3>
+              <p>Professional architectural planning and layout design</p>
+            </div>
+            <div className="service-card fade-in-up delay-2">
+              <h3>✏️ Architectural Designing</h3>
+              <p>Modern and functional architectural design services</p>
+            </div>
+            <div className="service-card fade-in-up">
+              <h3>💰 Cost Estimating</h3>
+              <p>Accurate project cost estimation and budgeting</p>
+            </div>
+            <div className="service-card fade-in-up delay-1">
+              <h3>📋 Building Permissions</h3>
+              <p>Complete assistance with building permits and approvals</p>
+            </div>
+            <div className="service-card fade-in-up delay-2">
+              <h3>🗺️ NA Layout Planning</h3>
+              <p>Non-Agricultural layout planning and development</p>
+            </div>
+            <div className="service-card fade-in-up">
+              <h3>📄 Construction Contracts</h3>
+              <p>Professional contract management and documentation</p>
+            </div>
+            <div className="service-card fade-in-up delay-1">
+              <h3>🎯 Project Consultation</h3>
+              <p>Expert guidance for your construction projects</p>
             </div>
           </div>
         </div>
