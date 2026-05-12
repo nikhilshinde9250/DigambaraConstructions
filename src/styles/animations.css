@@ -72,13 +72,19 @@ html {
 /* Hamburger Menu Animation */
 .menu-toggle {
   position: relative;
-  width: 30px;
-  height: 30px;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: transform 0.3s ease;
+  z-index: 1001;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .menu-toggle:active {
-  transform: scale(0.9);
+  transform: scale(0.95);
 }
 
 /* Enhanced Card Hover Effects */

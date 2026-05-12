@@ -26,14 +26,26 @@ export default function Layout() {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      if (isMenuOpen && !target.closest('.mobile-nav') && !target.closest('.menu-toggle')) {
+      const menuToggle = target.closest('.menu-toggle');
+      const mobileNav = target.closest('.mobile-nav');
+      
+      // Don't close if clicking the toggle button or inside the menu
+      if (menuToggle || mobileNav) {
+        return;
+      }
+      
+      // Close menu if clicking outside
+      if (isMenuOpen) {
         setIsMenuOpen(false);
         setIsProjectsOpen(false);
       }
     };
 
     if (isMenuOpen) {
-      document.addEventListener('click', handleClickOutside);
+      // Use setTimeout to avoid immediate closure
+      setTimeout(() => {
+        document.addEventListener('click', handleClickOutside);
+      }, 0);
     }
 
     return () => {
@@ -56,6 +68,11 @@ export default function Layout() {
   const handleMobileNavClick = () => {
     setIsMenuOpen(false);
     setIsProjectsOpen(false);
+  };
+
+  const handleMenuToggle = (e: React.MouseEvent | React.TouchEvent) => {
+    e.stopPropagation();
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
@@ -126,7 +143,10 @@ export default function Layout() {
               </button>
               <button
                 className="menu-toggle"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                onClick={handleMenuToggle}
+                onTouchEnd={handleMenuToggle}
+                aria-label="Toggle menu"
+                aria-expanded={isMenuOpen}
               >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>

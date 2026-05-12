@@ -2,10 +2,10 @@ import { Award, CheckCircle, Heart, Users, Briefcase } from "lucide-react";
 
 export default function AboutUs() {
   const founder = {
-    name: "Baliram Shinde",
+    name: "Engineer. Baliram Shinde",
     position: "Founder & CEO",
-    education: "Bachelor of Engineering (BE) in Civil Engineering",
-    description: "Mr. Baliram Shinde is a qualified Civil Engineer (BE Civil) and the visionary founder of Digambara Construction. As a full-time businessman and part-time YouTuber, he brings technical expertise and modern innovation to the construction industry. Since establishing the company in March 2025, he has been committed to delivering quality construction services with professional excellence. His engineering background combined with entrepreneurial spirit drives the company's mission to provide comprehensive construction solutions including building planning, designing, estimating, building permissions, NA layouts, and contract management.",
+    education: "BE Civil Engineering (Structural Engineer & BIM Engineer)",
+    description: "Mr. Baliram Shinde is a qualified BE Civil Engineering (Structural Engineer & BIM Engineer) and the visionary founder of Digambara Construction. As a full-time businessman and part-time YouTuber, he brings technical expertise and modern innovation to the construction industry. Since establishing the company in March 2025, he has been committed to delivering quality construction services with professional excellence. His engineering background combined with entrepreneurial spirit drives the company's mission to provide comprehensive construction solutions including building planning, designing, estimating, building permissions, NA layouts, and contract management.",
     image: "/images/Baliram.jpg" // Owner photo
   };
 

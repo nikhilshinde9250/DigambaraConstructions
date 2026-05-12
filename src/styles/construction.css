@@ -274,6 +274,8 @@ a {
   display: none;
   align-items: center;
   gap: 1rem;
+  position: relative;
+  z-index: 1001;
 }
 
 .menu-toggle {
@@ -282,6 +284,13 @@ a {
   cursor: pointer;
   color: var(--color-text);
   padding: 0.5rem;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 /* Mobile Navigation */
